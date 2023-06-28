@@ -14,6 +14,7 @@ That's basically it - hopefully it works lol.
 At the moment, you have to have the kingdom selected in the program for the right pictures to load, even though I'm pretty sure each moon name is unique across the game. I might change that in the future (but it's not that hard to click a button while the Odyssey is powering up).
 
 It should work for any game language, and I guess technically for any output language, but the moon name shown in the window is determined by the Translator's output language.
+This has more to do with the Translator software, but I find it works best on Simplified Chinese (third fronm bottom on 1.3) for some reason.
 
 Please note that this probably will not stop Talkatoo from giving you hint art and both Cold Room moons in Snow.
 
