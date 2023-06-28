@@ -58,6 +58,7 @@ namespace TalkatooMoonImages
                 Watcher.Filter = Path.GetFileName(txtPath.Text);
                 Watcher.Changed += OnFileChange;
                 Watcher.EnableRaisingEvents = true;
+                OnFileChange(null, null);
             }
             else
             {

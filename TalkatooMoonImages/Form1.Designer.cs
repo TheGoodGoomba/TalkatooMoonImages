@@ -52,7 +52,7 @@
             // 
             txtPath.Location = new Point(12, 27);
             txtPath.Name = "txtPath";
-            txtPath.Size = new Size(286, 23);
+            txtPath.Size = new Size(413, 23);
             txtPath.TabIndex = 0;
             txtPath.TextChanged += txtPath_TextChanged;
             // 
@@ -67,9 +67,9 @@
             // 
             // btnBrowse
             // 
-            btnBrowse.Location = new Point(304, 27);
+            btnBrowse.Location = new Point(431, 26);
             btnBrowse.Name = "btnBrowse";
-            btnBrowse.Size = new Size(87, 23);
+            btnBrowse.Size = new Size(120, 23);
             btnBrowse.TabIndex = 2;
             btnBrowse.Text = "Browse";
             btnBrowse.UseVisualStyleBackColor = true;
@@ -84,7 +84,7 @@
             btnMonitor.Enabled = false;
             btnMonitor.Location = new Point(12, 56);
             btnMonitor.Name = "btnMonitor";
-            btnMonitor.Size = new Size(379, 23);
+            btnMonitor.Size = new Size(539, 23);
             btnMonitor.TabIndex = 3;
             btnMonitor.Text = "Start Monitoring File";
             btnMonitor.UseVisualStyleBackColor = true;
@@ -95,17 +95,16 @@
             picMoon1.BorderStyle = BorderStyle.FixedSingle;
             picMoon1.Location = new Point(12, 154);
             picMoon1.Name = "picMoon1";
-            picMoon1.Size = new Size(150, 85);
-            picMoon1.SizeMode = PictureBoxSizeMode.Zoom;
+            picMoon1.Size = new Size(300, 169);
             picMoon1.TabIndex = 4;
             picMoon1.TabStop = false;
             // 
             // lblCurrentKingdom
             // 
             lblCurrentKingdom.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCurrentKingdom.Location = new Point(12, 105);
+            lblCurrentKingdom.Location = new Point(12, 104);
             lblCurrentKingdom.Name = "lblCurrentKingdom";
-            lblCurrentKingdom.Size = new Size(379, 24);
+            lblCurrentKingdom.Size = new Size(539, 24);
             lblCurrentKingdom.TabIndex = 5;
             lblCurrentKingdom.Text = "Cascade";
             lblCurrentKingdom.TextAlign = ContentAlignment.MiddleCenter;
@@ -114,7 +113,7 @@
             // 
             label2.Location = new Point(12, 82);
             label2.Name = "label2";
-            label2.Size = new Size(379, 23);
+            label2.Size = new Size(538, 23);
             label2.TabIndex = 6;
             label2.Text = "Current Kingdom:";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -123,7 +122,7 @@
             // 
             btnPrevKingdom.Location = new Point(12, 105);
             btnPrevKingdom.Name = "btnPrevKingdom";
-            btnPrevKingdom.Size = new Size(119, 26);
+            btnPrevKingdom.Size = new Size(200, 26);
             btnPrevKingdom.TabIndex = 7;
             btnPrevKingdom.Text = "<<<";
             btnPrevKingdom.TextAlign = ContentAlignment.MiddleRight;
@@ -132,9 +131,9 @@
             // 
             // btnNextKingdom
             // 
-            btnNextKingdom.Location = new Point(272, 103);
+            btnNextKingdom.Location = new Point(351, 105);
             btnNextKingdom.Name = "btnNextKingdom";
-            btnNextKingdom.Size = new Size(119, 26);
+            btnNextKingdom.Size = new Size(200, 26);
             btnNextKingdom.TabIndex = 8;
             btnNextKingdom.Text = ">>> Sand";
             btnNextKingdom.TextAlign = ContentAlignment.MiddleLeft;
@@ -144,9 +143,9 @@
             // picMoon2
             // 
             picMoon2.BorderStyle = BorderStyle.FixedSingle;
-            picMoon2.Location = new Point(12, 245);
+            picMoon2.Location = new Point(12, 329);
             picMoon2.Name = "picMoon2";
-            picMoon2.Size = new Size(150, 85);
+            picMoon2.Size = new Size(300, 169);
             picMoon2.SizeMode = PictureBoxSizeMode.Zoom;
             picMoon2.TabIndex = 9;
             picMoon2.TabStop = false;
@@ -154,9 +153,9 @@
             // picMoon3
             // 
             picMoon3.BorderStyle = BorderStyle.FixedSingle;
-            picMoon3.Location = new Point(12, 336);
+            picMoon3.Location = new Point(12, 504);
             picMoon3.Name = "picMoon3";
-            picMoon3.Size = new Size(150, 85);
+            picMoon3.Size = new Size(300, 169);
             picMoon3.SizeMode = PictureBoxSizeMode.Zoom;
             picMoon3.TabIndex = 10;
             picMoon3.TabStop = false;
@@ -166,9 +165,9 @@
             lblMoon1.BackColor = Color.White;
             lblMoon1.BorderStyle = BorderStyle.FixedSingle;
             lblMoon1.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon1.Location = new Point(168, 154);
+            lblMoon1.Location = new Point(318, 154);
             lblMoon1.Name = "lblMoon1";
-            lblMoon1.Size = new Size(223, 85);
+            lblMoon1.Size = new Size(233, 169);
             lblMoon1.TabIndex = 11;
             // 
             // lblMoon2
@@ -176,9 +175,9 @@
             lblMoon2.BackColor = Color.White;
             lblMoon2.BorderStyle = BorderStyle.FixedSingle;
             lblMoon2.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon2.Location = new Point(168, 245);
+            lblMoon2.Location = new Point(318, 329);
             lblMoon2.Name = "lblMoon2";
-            lblMoon2.Size = new Size(223, 85);
+            lblMoon2.Size = new Size(233, 169);
             lblMoon2.TabIndex = 12;
             // 
             // lblMoon3
@@ -186,16 +185,16 @@
             lblMoon3.BackColor = Color.White;
             lblMoon3.BorderStyle = BorderStyle.FixedSingle;
             lblMoon3.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon3.Location = new Point(168, 336);
+            lblMoon3.Location = new Point(318, 504);
             lblMoon3.Name = "lblMoon3";
-            lblMoon3.Size = new Size(223, 85);
+            lblMoon3.Size = new Size(233, 169);
             lblMoon3.TabIndex = 13;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(404, 434);
+            ClientSize = new Size(565, 684);
             Controls.Add(lblMoon3);
             Controls.Add(lblMoon2);
             Controls.Add(lblMoon1);
