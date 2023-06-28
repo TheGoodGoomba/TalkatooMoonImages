@@ -38,7 +38,14 @@
             label2 = new Label();
             btnPrevKingdom = new Button();
             btnNextKingdom = new Button();
+            picMoon2 = new PictureBox();
+            picMoon3 = new PictureBox();
+            lblMoon1 = new Label();
+            lblMoon2 = new Label();
+            lblMoon3 = new Label();
             ((System.ComponentModel.ISupportInitialize)picMoon1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picMoon2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picMoon3).BeginInit();
             SuspendLayout();
             // 
             // txtPath
@@ -85,9 +92,11 @@
             // 
             // picMoon1
             // 
-            picMoon1.Location = new Point(59, 195);
+            picMoon1.BorderStyle = BorderStyle.FixedSingle;
+            picMoon1.Location = new Point(12, 154);
             picMoon1.Name = "picMoon1";
-            picMoon1.Size = new Size(272, 113);
+            picMoon1.Size = new Size(150, 85);
+            picMoon1.SizeMode = PictureBoxSizeMode.Zoom;
             picMoon1.TabIndex = 4;
             picMoon1.TabStop = false;
             // 
@@ -132,11 +141,66 @@
             btnNextKingdom.UseVisualStyleBackColor = true;
             btnNextKingdom.Click += btnNextKingdom_Click;
             // 
+            // picMoon2
+            // 
+            picMoon2.BorderStyle = BorderStyle.FixedSingle;
+            picMoon2.Location = new Point(12, 245);
+            picMoon2.Name = "picMoon2";
+            picMoon2.Size = new Size(150, 85);
+            picMoon2.SizeMode = PictureBoxSizeMode.Zoom;
+            picMoon2.TabIndex = 9;
+            picMoon2.TabStop = false;
+            // 
+            // picMoon3
+            // 
+            picMoon3.BorderStyle = BorderStyle.FixedSingle;
+            picMoon3.Location = new Point(12, 336);
+            picMoon3.Name = "picMoon3";
+            picMoon3.Size = new Size(150, 85);
+            picMoon3.SizeMode = PictureBoxSizeMode.Zoom;
+            picMoon3.TabIndex = 10;
+            picMoon3.TabStop = false;
+            // 
+            // lblMoon1
+            // 
+            lblMoon1.BackColor = Color.White;
+            lblMoon1.BorderStyle = BorderStyle.FixedSingle;
+            lblMoon1.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMoon1.Location = new Point(168, 154);
+            lblMoon1.Name = "lblMoon1";
+            lblMoon1.Size = new Size(223, 85);
+            lblMoon1.TabIndex = 11;
+            // 
+            // lblMoon2
+            // 
+            lblMoon2.BackColor = Color.White;
+            lblMoon2.BorderStyle = BorderStyle.FixedSingle;
+            lblMoon2.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMoon2.Location = new Point(168, 245);
+            lblMoon2.Name = "lblMoon2";
+            lblMoon2.Size = new Size(223, 85);
+            lblMoon2.TabIndex = 12;
+            // 
+            // lblMoon3
+            // 
+            lblMoon3.BackColor = Color.White;
+            lblMoon3.BorderStyle = BorderStyle.FixedSingle;
+            lblMoon3.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMoon3.Location = new Point(168, 336);
+            lblMoon3.Name = "lblMoon3";
+            lblMoon3.Size = new Size(223, 85);
+            lblMoon3.TabIndex = 13;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(404, 440);
+            ClientSize = new Size(404, 434);
+            Controls.Add(lblMoon3);
+            Controls.Add(lblMoon2);
+            Controls.Add(lblMoon1);
+            Controls.Add(picMoon3);
+            Controls.Add(picMoon2);
             Controls.Add(btnNextKingdom);
             Controls.Add(btnPrevKingdom);
             Controls.Add(label2);
@@ -149,6 +213,8 @@
             Name = "Form1";
             Text = "Talkatoo Moon Images";
             ((System.ComponentModel.ISupportInitialize)picMoon1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picMoon2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picMoon3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -165,5 +231,10 @@
         private Label label2;
         private Button btnPrevKingdom;
         private Button btnNextKingdom;
+        private PictureBox picMoon2;
+        private PictureBox picMoon3;
+        private Label lblMoon1;
+        private Label lblMoon2;
+        private Label lblMoon3;
     }
 }
