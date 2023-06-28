@@ -1,6 +1,8 @@
 # Talkatoo Moon Images
 A simple Winforms app that complements the [Talkatoo Translator](https://github.com/AzHarcos/talkatoo-translator) by AzHarcos and Biakko by showing images of moons that Talkatoo mentions in Talkatoo% speedruns.
 
+![image](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/cba233ab-7eb2-4d0d-836a-78c8601a26a6)
+
 ## How to use
 Download the .zip from the latest release, extract the files and then run TalkatooMoonImages.exe. (Note that you'll need the [.NET 6.0 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to run this).
 
