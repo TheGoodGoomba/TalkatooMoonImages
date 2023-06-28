@@ -18,4 +18,5 @@ It should work for any game language, and I guess technically for any output lan
 Please note that this probably will not stop Talkatoo from giving you hint art and both Cold Room moons in Snow.
 
 ~~No~~ Few Talkatoos were harmed in the making of this tool.
+
 ![image](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/2b1a9989-b56d-45c3-87ba-b428de6b063f)
