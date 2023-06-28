@@ -34,6 +34,10 @@
             ofdMoonsFile = new OpenFileDialog();
             btnMonitor = new Button();
             picMoon1 = new PictureBox();
+            lblCurrentKingdom = new Label();
+            label2 = new Label();
+            btnPrevKingdom = new Button();
+            btnNextKingdom = new Button();
             ((System.ComponentModel.ISupportInitialize)picMoon1).BeginInit();
             SuspendLayout();
             // 
@@ -81,17 +85,62 @@
             // 
             // picMoon1
             // 
-            picMoon1.Location = new Point(12, 121);
+            picMoon1.Location = new Point(59, 195);
             picMoon1.Name = "picMoon1";
             picMoon1.Size = new Size(272, 113);
             picMoon1.TabIndex = 4;
             picMoon1.TabStop = false;
+            // 
+            // lblCurrentKingdom
+            // 
+            lblCurrentKingdom.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblCurrentKingdom.Location = new Point(12, 105);
+            lblCurrentKingdom.Name = "lblCurrentKingdom";
+            lblCurrentKingdom.Size = new Size(379, 24);
+            lblCurrentKingdom.TabIndex = 5;
+            lblCurrentKingdom.Text = "Cascade";
+            lblCurrentKingdom.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.Location = new Point(12, 82);
+            label2.Name = "label2";
+            label2.Size = new Size(379, 23);
+            label2.TabIndex = 6;
+            label2.Text = "Current Kingdom:";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // btnPrevKingdom
+            // 
+            btnPrevKingdom.Location = new Point(12, 105);
+            btnPrevKingdom.Name = "btnPrevKingdom";
+            btnPrevKingdom.Size = new Size(119, 26);
+            btnPrevKingdom.TabIndex = 7;
+            btnPrevKingdom.Text = "<<<";
+            btnPrevKingdom.TextAlign = ContentAlignment.MiddleRight;
+            btnPrevKingdom.UseVisualStyleBackColor = true;
+            btnPrevKingdom.Click += btnPrevKingdom_Click;
+            // 
+            // btnNextKingdom
+            // 
+            btnNextKingdom.Location = new Point(272, 103);
+            btnNextKingdom.Name = "btnNextKingdom";
+            btnNextKingdom.Size = new Size(119, 26);
+            btnNextKingdom.TabIndex = 8;
+            btnNextKingdom.Text = ">>> Sand";
+            btnNextKingdom.TextAlign = ContentAlignment.MiddleLeft;
+            btnNextKingdom.UseVisualStyleBackColor = true;
+            btnNextKingdom.Click += btnNextKingdom_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(404, 440);
+            Controls.Add(btnNextKingdom);
+            Controls.Add(btnPrevKingdom);
+            Controls.Add(label2);
+            Controls.Add(lblCurrentKingdom);
             Controls.Add(picMoon1);
             Controls.Add(btnMonitor);
             Controls.Add(btnBrowse);
@@ -112,5 +161,9 @@
         private OpenFileDialog ofdMoonsFile;
         private Button btnMonitor;
         private PictureBox picMoon1;
+        private Label lblCurrentKingdom;
+        private Label label2;
+        private Button btnPrevKingdom;
+        private Button btnNextKingdom;
     }
 }

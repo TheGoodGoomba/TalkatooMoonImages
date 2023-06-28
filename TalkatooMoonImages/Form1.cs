@@ -2,7 +2,21 @@ namespace TalkatooMoonImages
 {
     public partial class Form1 : Form
     {
-        private FileSystemWatcher _watcher;
+        private FileSystemWatcher Watcher;
+        private static List<string> Kingdoms = new List<string>
+        {
+            "Cascade",
+            "Sand",
+            "Wooded",
+            "Lake",
+            "Lost",
+            "Metro",
+            "Snow",
+            "Seaside",
+            "Luncheon",
+            "Bowser's"
+        };
+        private static int CurrentKingdomIndex = 0;
 
         public Form1()
         {
@@ -29,34 +43,59 @@ namespace TalkatooMoonImages
             }
         }
 
-        private bool _starting = true;
+        private bool MonitorStarting = true;
         private void btnMonitor_Click(object sender, EventArgs e)
         {
-            if (_starting)
+            if (MonitorStarting)
             {
-                _starting = false;
+                MonitorStarting = false;
                 txtPath.Enabled = false;
                 btnMonitor.Text = "Stop Monitoring File";
 
-                _watcher = new FileSystemWatcher();
-                _watcher.Path = Directory.GetParent(txtPath.Text).ToString();
-                _watcher.Filter = Path.GetFileName(txtPath.Text);
-                _watcher.Changed += OnFileChange;
+                Watcher = new FileSystemWatcher();
+                Watcher.Path = Directory.GetParent(txtPath.Text).ToString();
+                Watcher.Filter = Path.GetFileName(txtPath.Text);
+                Watcher.Changed += OnFileChange;
             }
             else
             {
-                _starting = true;
+                MonitorStarting = true;
                 txtPath.Enabled = true;
                 btnMonitor.Text = "Start Monitoring File";
                 btnMonitor.Enabled = true;
 
-                _watcher.Dispose();
+                Watcher.Dispose();
             }
         }
 
         private void OnFileChange(object sender, FileSystemEventArgs e)
         {
 
+        }
+
+        private void btnNextKingdom_Click(object sender, EventArgs e)
+        {
+            if (CurrentKingdomIndex != 9)
+            {
+                CurrentKingdomIndex++;
+                UpdateKingdomButtons();
+            }
+        }
+
+        private void btnPrevKingdom_Click(object sender, EventArgs e)
+        {
+            if (CurrentKingdomIndex != 0)
+            {
+                CurrentKingdomIndex--;
+                UpdateKingdomButtons();
+            }
+        }
+
+        private void UpdateKingdomButtons()
+        {
+            btnPrevKingdom.Text = $"{(CurrentKingdomIndex == 0 ? "" : Kingdoms[CurrentKingdomIndex - 1])} <<<";
+            btnNextKingdom.Text = $">>> {(CurrentKingdomIndex == 9 ? "" : Kingdoms[CurrentKingdomIndex + 1])}";
+            lblCurrentKingdom.Text = Kingdoms[CurrentKingdomIndex];
         }
     }
 }
