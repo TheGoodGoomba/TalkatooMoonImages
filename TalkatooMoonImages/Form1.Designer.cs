@@ -31,8 +31,10 @@
             txtPath = new TextBox();
             label1 = new Label();
             btnBrowse = new Button();
-            openFileDialog = new OpenFileDialog();
+            ofdMoonsFile = new OpenFileDialog();
             btnMonitor = new Button();
+            picMoon1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picMoon1).BeginInit();
             SuspendLayout();
             // 
             // txtPath
@@ -62,9 +64,9 @@
             btnBrowse.UseVisualStyleBackColor = true;
             btnBrowse.Click += btnBrowse_Click;
             // 
-            // openFileDialog
+            // ofdMoonsFile
             // 
-            openFileDialog.InitialDirectory = "C:\\";
+            ofdMoonsFile.InitialDirectory = "C:\\";
             // 
             // btnMonitor
             // 
@@ -77,17 +79,27 @@
             btnMonitor.UseVisualStyleBackColor = true;
             btnMonitor.Click += btnMonitor_Click;
             // 
+            // picMoon1
+            // 
+            picMoon1.Location = new Point(12, 121);
+            picMoon1.Name = "picMoon1";
+            picMoon1.Size = new Size(272, 113);
+            picMoon1.TabIndex = 4;
+            picMoon1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(404, 303);
+            ClientSize = new Size(404, 440);
+            Controls.Add(picMoon1);
             Controls.Add(btnMonitor);
             Controls.Add(btnBrowse);
             Controls.Add(label1);
             Controls.Add(txtPath);
             Name = "Form1";
             Text = "Talkatoo Moon Images";
+            ((System.ComponentModel.ISupportInitialize)picMoon1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -97,7 +109,8 @@
         private TextBox txtPath;
         private Label label1;
         private Button btnBrowse;
-        private OpenFileDialog openFileDialog;
+        private OpenFileDialog ofdMoonsFile;
         private Button btnMonitor;
+        private PictureBox picMoon1;
     }
 }

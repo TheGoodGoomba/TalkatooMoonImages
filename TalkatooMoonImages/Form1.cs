@@ -7,12 +7,14 @@ namespace TalkatooMoonImages
         public Form1()
         {
             InitializeComponent();
+
+            picMoon1.ImageLocation = @"C:\src\TalkatooMoonImages\SMO\Cascade\300px-SMO_Cascade_Moon_1.png";
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            openFileDialog.ShowDialog();
-            txtPath.Text = openFileDialog.FileName;
+            ofdMoonsFile.ShowDialog();
+            txtPath.Text = ofdMoonsFile.FileName;
         }
 
         private void txtPath_TextChanged(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace TalkatooMoonImages
 
         private void OnFileChange(object sender, FileSystemEventArgs e)
         {
-            
+
         }
     }
 }
