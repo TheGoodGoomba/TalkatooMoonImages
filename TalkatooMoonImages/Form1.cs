@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Windows.Forms;
-
 namespace TalkatooMoonImages
 {
     public partial class Form1 : Form
@@ -36,17 +32,21 @@ namespace TalkatooMoonImages
         {
             if (_starting)
             {
+                _starting = false;
                 txtPath.Enabled = false;
                 btnMonitor.Text = "Stop Monitoring File";
 
                 _watcher = new FileSystemWatcher();
                 _watcher.Path = Directory.GetParent(txtPath.Text).ToString();
+                _watcher.Filter = Path.GetFileName(txtPath.Text);
                 _watcher.Changed += OnFileChange;
             }
             else
             {
+                _starting = true;
                 txtPath.Enabled = true;
                 btnMonitor.Text = "Start Monitoring File";
+                btnMonitor.Enabled = true;
 
                 _watcher.Dispose();
             }
