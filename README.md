@@ -3,6 +3,8 @@ A simple Winforms app that complements the [Talkatoo Translator](https://github.
 
 ![image](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/cba233ab-7eb2-4d0d-836a-78c8601a26a6)
 
+Watch [this video](https://youtu.be/fbk-O3lpr7E) for a short demonstration of its use.
+
 ## How to use
 Download the .zip from the latest release, extract the files and then run TalkatooMoonImages.exe. (Note that you'll need the [.NET 6.0 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) to run this).
 
@@ -15,11 +17,10 @@ That's basically it - hopefully it works lol.
 ## Limitations
 At the moment, you have to have the kingdom selected in the program for the right pictures to load, even though I'm pretty sure each moon name is unique across the game. I might change that in the future (but it's not that hard to click a button while the Odyssey is powering up).
 
-It should work for any game language, and I guess technically for any output language, but the moon name shown in the window is determined by the Translator's output language.
-This has more to do with the Translator software, but I find it works best on Simplified Chinese (third fronm bottom on 1.3) for some reason.
+The moon images are from the [Mario Wiki](mariowiki.com), so they're not the best in terms of what a runner might need to see to remember a moon in a run. I might get some better ones, but you can also change the images by replacing the files in the `Images` folder. (Each kingdom has its own subfolder, and each moon is named [number].png).
 
 Please note that this probably will not stop Talkatoo from giving you hint art and both Cold Room moons in Snow.
 
-~~No~~ Few Talkatoos were harmed in the making of this tool.
+No Talkatoos were harmed in the making of this tool.
 
 ![image](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/2b1a9989-b56d-45c3-87ba-b428de6b063f)
