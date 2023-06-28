@@ -50,6 +50,7 @@ namespace TalkatooMoonImages
             {
                 MonitorStarting = false;
                 txtPath.Enabled = false;
+                btnBrowse.Enabled = false;
                 btnMonitor.Text = "Stop Monitoring File";
 
                 Watcher = new FileSystemWatcher();
@@ -62,6 +63,7 @@ namespace TalkatooMoonImages
             {
                 MonitorStarting = true;
                 txtPath.Enabled = true;
+                btnBrowse.Enabled = true;
                 btnMonitor.Text = "Start Monitoring File";
                 btnMonitor.Enabled = true;
 
@@ -147,12 +149,12 @@ namespace TalkatooMoonImages
 
         private void UpdateKingdom()
         {
-            KingdomDirectory = Path.Combine(Directory.GetCurrentDirectory(), Kingdoms[CurrentKingdomIndex]);
+            KingdomDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images", Kingdoms[CurrentKingdomIndex]);
             btnPrevKingdom.Text = $"{(CurrentKingdomIndex == 0 ? "" : Kingdoms[CurrentKingdomIndex - 1])} <<<";
             btnNextKingdom.Text = $">>> {(CurrentKingdomIndex == 9 ? "" : Kingdoms[CurrentKingdomIndex + 1])}";
             lblCurrentKingdom.Text = Kingdoms[CurrentKingdomIndex];
 
-            ClearMoons();
+            OnFileChange(null, null);
         }
 
         private void ClearMoons()
