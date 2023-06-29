@@ -135,7 +135,7 @@
             // 
             // btnNextKingdom
             // 
-            btnNextKingdom.Location = new Point(351, 105);
+            btnNextKingdom.Location = new Point(350, 129);
             btnNextKingdom.Name = "btnNextKingdom";
             btnNextKingdom.Size = new Size(200, 26);
             btnNextKingdom.TabIndex = 8;
@@ -210,7 +210,7 @@
             tsiMoonNotes.Text = "Moon Notes";
             tsiMoonNotes.Click += tsiMoonNotes_Click;
             // 
-            // Main
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -234,7 +234,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip;
             MaximizeBox = false;
-            Name = "Main";
+            Name = "MainForm";
             Text = "Talkatoo Moon Images";
             ((System.ComponentModel.ISupportInitialize)picMoon1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picMoon2).EndInit();

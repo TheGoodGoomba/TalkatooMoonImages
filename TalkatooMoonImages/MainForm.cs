@@ -3,18 +3,18 @@ namespace TalkatooMoonImages
     public partial class MainForm : Form
     {
         private FileSystemWatcher Watcher;
-        public static List<string> Kingdoms = new List<string>
+        public static List<Kingdom> Kingdoms = new List<Kingdom>
         {
-            "Cascade",
-            "Sand",
-            "Wooded",
-            "Lake",
-            "Lost",
-            "Metro",
-            "Snow",
-            "Seaside",
-            "Luncheon",
-            "Bowser's"
+            new Kingdom("Cascade", 40),
+            new Kingdom("Sand", 89),
+            new Kingdom("Wooded", 76),
+            new Kingdom("Lake", 42),
+            new Kingdom("Lost", 35),
+            new Kingdom("Metro", 81),
+            new Kingdom("Snow", 55),
+            new Kingdom("Seaside", 71),
+            new Kingdom("Luncheon", 68),
+            new Kingdom("Bowser's", 62)
         };
         private static int CurrentKingdomIndex = 0;
         private static string KingdomDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images", "Cascade");
@@ -155,10 +155,10 @@ namespace TalkatooMoonImages
 
         private void UpdateKingdom()
         {
-            KingdomDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images", Kingdoms[CurrentKingdomIndex]);
+            KingdomDirectory = Kingdoms[CurrentKingdomIndex].GetImageDirectory();
             btnPrevKingdom.Text = $"{(CurrentKingdomIndex == 0 ? "" : Kingdoms[CurrentKingdomIndex - 1])} <<<";
             btnNextKingdom.Text = $">>> {(CurrentKingdomIndex == 9 ? "" : Kingdoms[CurrentKingdomIndex + 1])}";
-            lblCurrentKingdom.Text = Kingdoms[CurrentKingdomIndex];
+            lblCurrentKingdom.Text = Kingdoms[CurrentKingdomIndex].Name;
 
             OnFileChange(null, null);
         }
@@ -175,8 +175,8 @@ namespace TalkatooMoonImages
 
         private void tsiMoonNotes_Click(object sender, EventArgs e)
         {
-            var moonForm = new MoonForm();
-            moonForm.ShowDialog();
+            var moonSelectForm = new MoonSelectForm();
+            moonSelectForm.ShowDialog();
         }
     }
 }

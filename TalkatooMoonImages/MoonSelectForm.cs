@@ -12,9 +12,16 @@ namespace TalkatooMoonImages
 {
     public partial class MoonSelectForm : Form
     {
-        public MoonSelectForm()
+        private Kingdom Kingdom;
+
+        public MoonSelectForm(Kingdom kingdom)
         {
+            Kingdom = kingdom;
+
             InitializeComponent();
+
+            nudMoonNumber.Maximum = Kingdom.MaxMoonId;
+            lblKingdom.Text = $"{Kingdom.Name} moon:";
         }
     }
 }
