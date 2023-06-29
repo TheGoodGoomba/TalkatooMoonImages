@@ -15,7 +15,8 @@ namespace TalkatooMoonImages
         }
 
         public string Name { get; set; }
-        public int MaxMoonId { get; set; }
+        public int MaxMoonId { get; set; } // to be replaced by Moons.Count
+        public List<Moon> Moons { get; set; }
 
         public string GetImageDirectory()
         {
