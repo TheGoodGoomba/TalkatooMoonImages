@@ -102,7 +102,7 @@ namespace TalkatooMoonImages
             // Invoke() avoids some weird threading error with changing label text in an event method
             Invoke(() =>
             {
-                ClearMoons(); 
+                ClearMoons();
             });
 
             if (pendingMoons.Count > 0)
@@ -111,7 +111,7 @@ namespace TalkatooMoonImages
                 picMoon1.ImageLocation = imageLocation;
                 Invoke(() =>
                 {
-                    lblMoon1.Text = pendingMoons[0].Value;
+                    lblMoon1Name.Text = pendingMoons[0].Value;
                 });
             }
             if (pendingMoons.Count > 1)
@@ -120,7 +120,7 @@ namespace TalkatooMoonImages
                 picMoon2.ImageLocation = imageLocation;
                 Invoke(() =>
                 {
-                    lblMoon2.Text = pendingMoons[1].Value;
+                    lblMoon2Name.Text = pendingMoons[1].Value;
                 });
             }
             if (pendingMoons.Count > 2)
@@ -129,7 +129,7 @@ namespace TalkatooMoonImages
                 picMoon3.ImageLocation = imageLocation;
                 Invoke(() =>
                 {
-                    lblMoon3.Text = pendingMoons[2].Value;
+                    lblMoon3Name.Text = pendingMoons[2].Value;
                 });
             }
         }
@@ -169,9 +169,12 @@ namespace TalkatooMoonImages
             picMoon1.Image = null;
             picMoon2.Image = null;
             picMoon3.Image = null;
-            lblMoon1.Text = "";
-            lblMoon2.Text = "";
-            lblMoon3.Text = "";
+            lblMoon1Name.Text = "";
+            lblMoon1Notes.Text = "";
+            lblMoon2Name.Text = "";
+            lblMoon2Notes.Text = "";
+            lblMoon3Name.Text = "";
+            lblMoon3Notes.Text = "";
         }
 
         private void tsiMoonNotes_Click(object sender, EventArgs e)

@@ -23,5 +23,11 @@ namespace TalkatooMoonImages
             nudMoonNumber.Maximum = Kingdom.Moons.Count;
             lblKingdom.Text = $"{Kingdom.Name} moon:";
         }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            var moonForm = new MoonForm();
+            moonForm.ShowDialog();
+        }
     }
 }
