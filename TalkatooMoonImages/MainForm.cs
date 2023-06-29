@@ -1,26 +1,38 @@
+using Newtonsoft.Json;
+
 namespace TalkatooMoonImages
 {
     public partial class MainForm : Form
     {
         private FileSystemWatcher Watcher;
-        public static List<Kingdom> Kingdoms = new List<Kingdom>
-        {
-            new Kingdom("Cascade", 40),
-            new Kingdom("Sand", 89),
-            new Kingdom("Wooded", 76),
-            new Kingdom("Lake", 42),
-            new Kingdom("Lost", 35),
-            new Kingdom("Metro", 81),
-            new Kingdom("Snow", 55),
-            new Kingdom("Seaside", 71),
-            new Kingdom("Luncheon", 68),
-            new Kingdom("Bowser's", 62)
-        };
+        private static List<Kingdom> Kingdoms;
         private static int CurrentKingdomIndex = 0;
+        private static string SaveJsonPath = Path.Combine(Directory.GetCurrentDirectory(), "save.json");
 
         public MainForm()
         {
             InitializeComponent();
+
+            if (File.Exists(SaveJsonPath))
+            {
+                LoadKingdoms();
+            }
+            else
+            {
+                Kingdoms = new List<Kingdom>
+                {
+                    new Kingdom("Cascade", 40),
+                    new Kingdom("Sand", 89),
+                    new Kingdom("Wooded", 76),
+                    new Kingdom("Lake", 42),
+                    new Kingdom("Lost", 35),
+                    new Kingdom("Metro", 81),
+                    new Kingdom("Snow", 55),
+                    new Kingdom("Seaside", 71),
+                    new Kingdom("Luncheon", 68),
+                    new Kingdom("Bowser's", 62)
+                };
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -112,6 +124,7 @@ namespace TalkatooMoonImages
                 Invoke(() =>
                 {
                     lblMoon1Name.Text = pendingMoons[0].Value;
+                    lblMoon1Notes.Text = pendingMoons[0].Key.Notes;
                 });
             }
             if (pendingMoons.Count > 1)
@@ -121,6 +134,7 @@ namespace TalkatooMoonImages
                 Invoke(() =>
                 {
                     lblMoon2Name.Text = pendingMoons[1].Value;
+                    lblMoon2Notes.Text = pendingMoons[1].Key.Notes;
                 });
             }
             if (pendingMoons.Count > 2)
@@ -130,6 +144,7 @@ namespace TalkatooMoonImages
                 Invoke(() =>
                 {
                     lblMoon3Name.Text = pendingMoons[2].Value;
+                    lblMoon3Notes.Text = pendingMoons[2].Key.Notes;
                 });
             }
         }
@@ -181,6 +196,25 @@ namespace TalkatooMoonImages
         {
             var moonSelectForm = new MoonSelectForm(Kingdoms[CurrentKingdomIndex]);
             moonSelectForm.ShowDialog();
+        }
+
+        public static void SaveKingdoms()
+        {
+            var kingdomsJson = JsonConvert.SerializeObject(Kingdoms, Formatting.Indented);
+            File.WriteAllText(SaveJsonPath, kingdomsJson);
+        }
+
+        public static void LoadKingdoms()
+        {
+            var kingdomsJson = File.ReadAllText(SaveJsonPath);
+            Kingdoms = JsonConvert.DeserializeObject<List<Kingdom>>(kingdomsJson);
+            foreach (var kingdom in Kingdoms)
+            {
+                foreach (var moon in kingdom.Moons)
+                {
+                    moon.Kingdom = kingdom;
+                }
+            }
         }
     }
 }

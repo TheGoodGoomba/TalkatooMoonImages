@@ -8,6 +8,8 @@ namespace TalkatooMoonImages
 {
     public class Kingdom
     {
+        public Kingdom() { }
+
         public Kingdom(string name, int numberOfMoons)
         {
             Name = name;

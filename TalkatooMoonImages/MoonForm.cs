@@ -19,7 +19,7 @@ namespace TalkatooMoonImages
             Moon = moon;
             InitializeComponent();
 
-            lblHeading.Text = $"{Moon.Kingdom} Moon {Moon.MoonId}";
+            lblHeading.Text = $"{Moon.Kingdom.Name} Moon {Moon.MoonId}";
             picImage.ImageLocation = Moon.GetImageLocation();
             txtNotes.Text = Moon.Notes;
         }
@@ -27,6 +27,7 @@ namespace TalkatooMoonImages
         private void btnSave_Click(object sender, EventArgs e)
         {
             Moon.Notes = txtNotes.Text;
+            MainForm.SaveKingdoms();
             Close();
         }
     }
