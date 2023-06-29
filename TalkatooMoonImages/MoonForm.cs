@@ -12,9 +12,22 @@ namespace TalkatooMoonImages
 {
     public partial class MoonForm : Form
     {
-        public MoonForm()
+        private Moon Moon;
+
+        public MoonForm(Moon moon)
         {
+            Moon = moon;
             InitializeComponent();
+
+            lblHeading.Text = $"{Moon.Kingdom} Moon {Moon.MoonId}";
+            picImage.ImageLocation = Moon.GetImageLocation();
+            txtNotes.Text = Moon.Notes;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Moon.Notes = txtNotes.Text;
+            Close();
         }
     }
 }

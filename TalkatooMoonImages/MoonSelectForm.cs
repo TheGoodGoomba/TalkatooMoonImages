@@ -26,7 +26,8 @@ namespace TalkatooMoonImages
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            var moonForm = new MoonForm();
+            var moon = Kingdom.Moons.FirstOrDefault(x => x.MoonId == nudMoonNumber.Value);
+            var moonForm = new MoonForm(moon);
             moonForm.ShowDialog();
         }
     }

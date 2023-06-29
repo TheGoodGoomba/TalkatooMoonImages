@@ -16,6 +16,7 @@ namespace TalkatooMoonImages
 
         public int MoonId { get; set; }
         public Kingdom Kingdom { get; set; }
+        public string Notes { get; set; }
         
         public string GetImageLocation()
         {
