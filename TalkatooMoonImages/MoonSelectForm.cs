@@ -20,7 +20,7 @@ namespace TalkatooMoonImages
 
             InitializeComponent();
 
-            nudMoonNumber.Maximum = Kingdom.MaxMoonId;
+            nudMoonNumber.Maximum = Kingdom.Moons.Count;
             lblKingdom.Text = $"{Kingdom.Name} moon:";
         }
     }

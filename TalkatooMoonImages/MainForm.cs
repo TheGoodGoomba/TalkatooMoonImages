@@ -17,8 +17,6 @@ namespace TalkatooMoonImages
             new Kingdom("Bowser's", 62)
         };
         private static int CurrentKingdomIndex = 0;
-        private static string KingdomDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images", "Cascade");
-        private static List<KeyValuePair<string, string>> TalkatooMoons; // Key: Moon ID (as a string); Value: Moon name
 
         public MainForm()
         {
@@ -43,12 +41,12 @@ namespace TalkatooMoonImages
             }
         }
 
-        private bool MonitorStarting = true;
+        private bool Monitoring = false;
         private void btnMonitor_Click(object sender, EventArgs e)
         {
-            if (MonitorStarting)
+            if (!Monitoring)
             {
-                MonitorStarting = false;
+                Monitoring = true;
                 ToggleEnabledWhenMonitoring(false);
                 btnMonitor.Text = "Stop Monitoring File";
 
@@ -61,10 +59,9 @@ namespace TalkatooMoonImages
             }
             else
             {
-                MonitorStarting = true;
+                Monitoring = false;
                 ToggleEnabledWhenMonitoring(true);
                 btnMonitor.Text = "Start Monitoring File";
-                //btnMonitor.Enabled = true;
 
                 Watcher.Dispose();
             }
@@ -79,14 +76,14 @@ namespace TalkatooMoonImages
 
         private void OnFileChange(object sender, FileSystemEventArgs e)
         {
-            TalkatooMoons = new List<KeyValuePair<string, string>>();
+            var pendingMoons = new List<KeyValuePair<Moon, string>>(); // Key: Moon (kingdom and Id); Value: Moon name
             var success = false;
-            string[] pendingMoons = null;
+            string[] pendingMoonsText = null;
             while (!success)
             {
                 try
                 {
-                    pendingMoons = File.ReadAllLines(txtPath.Text);
+                    pendingMoonsText = File.ReadAllLines(txtPath.Text);
                     success = true;
                 }
                 catch
@@ -94,43 +91,45 @@ namespace TalkatooMoonImages
                     Thread.Sleep(100);
                 }
             }
-            foreach (var moon in pendingMoons)
+            foreach (var moonLine in pendingMoonsText)
             {
-                var moonSplit = moon.Split(" - ");
-                var idNamePair = new KeyValuePair<string, string>(moonSplit[0], moonSplit[1]);
-                TalkatooMoons.Add(idNamePair);
+                var moonSplit = moonLine.Split(" - ");
+                var moon = Kingdoms[CurrentKingdomIndex].Moons.FirstOrDefault(x => x.MoonId == int.Parse(moonSplit[0]));
+                var moonNamePair = new KeyValuePair<Moon, string>(moon, moonSplit[1]);
+                pendingMoons.Add(moonNamePair);
             }
 
+            // Invoke() avoids some weird threading error with changing label text in an event method
             Invoke(() =>
             {
-                ClearMoons();
-            }); // Invoke() avoids some weird threading error with changing label text in an event method
+                ClearMoons(); 
+            });
 
-            if (TalkatooMoons.Count > 0)
+            if (pendingMoons.Count > 0)
             {
-                var imagePath = Path.Combine(KingdomDirectory, $"{TalkatooMoons[0].Key}.png");
-                picMoon1.ImageLocation = imagePath;
+                var imageLocation = pendingMoons[0].Key.GetImageLocation();
+                picMoon1.ImageLocation = imageLocation;
                 Invoke(() =>
                 {
-                    lblMoon1.Text = TalkatooMoons[0].Value;
+                    lblMoon1.Text = pendingMoons[0].Value;
                 });
             }
-            if (TalkatooMoons.Count > 1)
+            if (pendingMoons.Count > 1)
             {
-                var imagePath = Path.Combine(KingdomDirectory, $"{TalkatooMoons[1].Key}.png");
-                picMoon2.ImageLocation = imagePath;
+                var imageLocation = pendingMoons[1].Key.GetImageLocation();
+                picMoon2.ImageLocation = imageLocation;
                 Invoke(() =>
                 {
-                    lblMoon2.Text = TalkatooMoons[1].Value;
+                    lblMoon2.Text = pendingMoons[1].Value;
                 });
             }
-            if (TalkatooMoons.Count > 2)
+            if (pendingMoons.Count > 2)
             {
-                var imagePath = Path.Combine(KingdomDirectory, $"{TalkatooMoons[2].Key}.png");
-                picMoon3.ImageLocation = imagePath;
+                var imageLocation = pendingMoons[2].Key.GetImageLocation();
+                picMoon3.ImageLocation = imageLocation;
                 Invoke(() =>
                 {
-                    lblMoon3.Text = TalkatooMoons[2].Value;
+                    lblMoon3.Text = pendingMoons[2].Value;
                 });
             }
         }
@@ -155,12 +154,14 @@ namespace TalkatooMoonImages
 
         private void UpdateKingdom()
         {
-            KingdomDirectory = Kingdoms[CurrentKingdomIndex].GetImageDirectory();
-            btnPrevKingdom.Text = $"{(CurrentKingdomIndex == 0 ? "" : Kingdoms[CurrentKingdomIndex - 1])} <<<";
-            btnNextKingdom.Text = $">>> {(CurrentKingdomIndex == 9 ? "" : Kingdoms[CurrentKingdomIndex + 1])}";
+            btnPrevKingdom.Text = $"{(CurrentKingdomIndex == 0 ? "" : Kingdoms[CurrentKingdomIndex - 1].Name)} <<<";
+            btnNextKingdom.Text = $">>> {(CurrentKingdomIndex == 9 ? "" : Kingdoms[CurrentKingdomIndex + 1].Name)}";
             lblCurrentKingdom.Text = Kingdoms[CurrentKingdomIndex].Name;
 
-            OnFileChange(null, null);
+            if (btnMonitor.Enabled) // From txtPath_Changed(), the button is only enabled when there is a valid path in the textbox.
+            {
+                OnFileChange(null, null);
+            }
         }
 
         private void ClearMoons()
@@ -175,7 +176,7 @@ namespace TalkatooMoonImages
 
         private void tsiMoonNotes_Click(object sender, EventArgs e)
         {
-            var moonSelectForm = new MoonSelectForm();
+            var moonSelectForm = new MoonSelectForm(Kingdoms[CurrentKingdomIndex]);
             moonSelectForm.ShowDialog();
         }
     }

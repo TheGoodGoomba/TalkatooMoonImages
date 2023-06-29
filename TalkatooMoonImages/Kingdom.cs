@@ -8,14 +8,17 @@ namespace TalkatooMoonImages
 {
     public class Kingdom
     {
-        public Kingdom(string name, int maxMoonId)
+        public Kingdom(string name, int numberOfMoons)
         {
             Name = name;
-            MaxMoonId = maxMoonId;
+            Moons = new List<Moon>();
+            for (var i = 1; i <= numberOfMoons; i++)
+            {
+                Moons.Add(new Moon(i, this));
+            }
         }
 
         public string Name { get; set; }
-        public int MaxMoonId { get; set; } // to be replaced by Moons.Count
         public List<Moon> Moons { get; set; }
 
         public string GetImageDirectory()
