@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             txtPath = new TextBox();
             label1 = new Label();
             btnBrowse = new Button();
@@ -209,6 +210,9 @@
             Controls.Add(btnBrowse);
             Controls.Add(label1);
             Controls.Add(txtPath);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form1";
             Text = "Talkatoo Moon Images";
             ((System.ComponentModel.ISupportInitialize)picMoon1).EndInit();
