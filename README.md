@@ -1,7 +1,7 @@
 # Talkatoo Moon Images
 A simple Winforms app that complements the [Talkatoo Translator](https://github.com/AzHarcos/talkatoo-translator) by AzHarcos and Biakko by showing images of moons that Talkatoo mentions in Talkatoo% speedruns.
 
-![image](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/cba233ab-7eb2-4d0d-836a-78c8601a26a6)
+![program](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/275eeb91-4a71-4537-9263-9a8e3fd21eea)
 
 Watch [this video](https://youtu.be/fbk-O3lpr7E) for a short demonstration of its use.
 
@@ -23,4 +23,4 @@ Please note that this probably will not stop Talkatoo from giving you hint art a
 
 No Talkatoos were harmed in the making of this tool.
 
-![image](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/2b1a9989-b56d-45c3-87ba-b428de6b063f)
+![bird](https://github.com/TheGoodGoomba/TalkatooMoonImages/assets/67541077/e0c25026-65f8-4ddd-b364-565c7ff09d72)
