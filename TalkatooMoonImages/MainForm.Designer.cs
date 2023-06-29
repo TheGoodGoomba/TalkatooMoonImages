@@ -208,7 +208,7 @@
             lblMoon2Notes.BackColor = Color.White;
             lblMoon2Notes.BorderStyle = BorderStyle.FixedSingle;
             lblMoon2Notes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon2Notes.Location = new Point(318, 426);
+            lblMoon2Notes.Location = new Point(319, 426);
             lblMoon2Notes.Name = "lblMoon2Notes";
             lblMoon2Notes.Size = new Size(233, 98);
             lblMoon2Notes.TabIndex = 17;
@@ -218,7 +218,7 @@
             lblMoon2Name.BackColor = Color.White;
             lblMoon2Name.BorderStyle = BorderStyle.FixedSingle;
             lblMoon2Name.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon2Name.Location = new Point(318, 354);
+            lblMoon2Name.Location = new Point(319, 354);
             lblMoon2Name.Name = "lblMoon2Name";
             lblMoon2Name.Size = new Size(233, 70);
             lblMoon2Name.TabIndex = 16;
@@ -228,7 +228,7 @@
             lblMoon3Notes.BackColor = Color.White;
             lblMoon3Notes.BorderStyle = BorderStyle.FixedSingle;
             lblMoon3Notes.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon3Notes.Location = new Point(318, 602);
+            lblMoon3Notes.Location = new Point(319, 602);
             lblMoon3Notes.Name = "lblMoon3Notes";
             lblMoon3Notes.Size = new Size(233, 98);
             lblMoon3Notes.TabIndex = 19;
@@ -238,7 +238,7 @@
             lblMoon3Name.BackColor = Color.White;
             lblMoon3Name.BorderStyle = BorderStyle.FixedSingle;
             lblMoon3Name.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon3Name.Location = new Point(318, 530);
+            lblMoon3Name.Location = new Point(319, 530);
             lblMoon3Name.Name = "lblMoon3Name";
             lblMoon3Name.Size = new Size(233, 70);
             lblMoon3Name.TabIndex = 18;
