@@ -48,7 +48,7 @@
             // 
             // nudMoonNumber
             // 
-            nudMoonNumber.Location = new Point(174, 8);
+            nudMoonNumber.Location = new Point(203, 9);
             nudMoonNumber.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudMoonNumber.Name = "nudMoonNumber";
             nudMoonNumber.Size = new Size(42, 23);
@@ -66,9 +66,9 @@
             // 
             // btnContinue
             // 
-            btnContinue.Location = new Point(12, 58);
+            btnContinue.Location = new Point(12, 56);
             btnContinue.Name = "btnContinue";
-            btnContinue.Size = new Size(204, 23);
+            btnContinue.Size = new Size(80, 23);
             btnContinue.TabIndex = 4;
             btnContinue.Text = "Continue";
             btnContinue.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(228, 91);
+            ClientSize = new Size(257, 91);
             Controls.Add(btnContinue);
             Controls.Add(label1);
             Controls.Add(nudMoonNumber);
