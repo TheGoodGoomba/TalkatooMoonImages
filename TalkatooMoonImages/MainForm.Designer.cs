@@ -1,6 +1,6 @@
 ﻿namespace TalkatooMoonImages
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             txtPath = new TextBox();
             label1 = new Label();
             btnBrowse = new Button();
@@ -44,14 +44,17 @@
             lblMoon1 = new Label();
             lblMoon2 = new Label();
             lblMoon3 = new Label();
+            menuStrip = new MenuStrip();
+            tsiMoonNotes = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)picMoon1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picMoon2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picMoon3).BeginInit();
+            menuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // txtPath
             // 
-            txtPath.Location = new Point(12, 27);
+            txtPath.Location = new Point(12, 51);
             txtPath.Name = "txtPath";
             txtPath.Size = new Size(413, 23);
             txtPath.TabIndex = 0;
@@ -60,7 +63,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(12, 33);
             label1.Name = "label1";
             label1.Size = new Size(140, 15);
             label1.TabIndex = 1;
@@ -68,7 +71,7 @@
             // 
             // btnBrowse
             // 
-            btnBrowse.Location = new Point(431, 26);
+            btnBrowse.Location = new Point(430, 51);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.Size = new Size(120, 23);
             btnBrowse.TabIndex = 2;
@@ -83,7 +86,7 @@
             // btnMonitor
             // 
             btnMonitor.Enabled = false;
-            btnMonitor.Location = new Point(12, 56);
+            btnMonitor.Location = new Point(12, 80);
             btnMonitor.Name = "btnMonitor";
             btnMonitor.Size = new Size(539, 23);
             btnMonitor.TabIndex = 3;
@@ -94,7 +97,7 @@
             // picMoon1
             // 
             picMoon1.BorderStyle = BorderStyle.FixedSingle;
-            picMoon1.Location = new Point(12, 154);
+            picMoon1.Location = new Point(12, 178);
             picMoon1.Name = "picMoon1";
             picMoon1.Size = new Size(300, 169);
             picMoon1.TabIndex = 4;
@@ -103,7 +106,7 @@
             // lblCurrentKingdom
             // 
             lblCurrentKingdom.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lblCurrentKingdom.Location = new Point(12, 104);
+            lblCurrentKingdom.Location = new Point(12, 128);
             lblCurrentKingdom.Name = "lblCurrentKingdom";
             lblCurrentKingdom.Size = new Size(539, 24);
             lblCurrentKingdom.TabIndex = 5;
@@ -112,7 +115,7 @@
             // 
             // label2
             // 
-            label2.Location = new Point(12, 82);
+            label2.Location = new Point(12, 106);
             label2.Name = "label2";
             label2.Size = new Size(538, 23);
             label2.TabIndex = 6;
@@ -121,7 +124,7 @@
             // 
             // btnPrevKingdom
             // 
-            btnPrevKingdom.Location = new Point(12, 105);
+            btnPrevKingdom.Location = new Point(12, 129);
             btnPrevKingdom.Name = "btnPrevKingdom";
             btnPrevKingdom.Size = new Size(200, 26);
             btnPrevKingdom.TabIndex = 7;
@@ -144,7 +147,7 @@
             // picMoon2
             // 
             picMoon2.BorderStyle = BorderStyle.FixedSingle;
-            picMoon2.Location = new Point(12, 329);
+            picMoon2.Location = new Point(12, 353);
             picMoon2.Name = "picMoon2";
             picMoon2.Size = new Size(300, 169);
             picMoon2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -154,7 +157,7 @@
             // picMoon3
             // 
             picMoon3.BorderStyle = BorderStyle.FixedSingle;
-            picMoon3.Location = new Point(12, 504);
+            picMoon3.Location = new Point(12, 528);
             picMoon3.Name = "picMoon3";
             picMoon3.Size = new Size(300, 169);
             picMoon3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -166,7 +169,7 @@
             lblMoon1.BackColor = Color.White;
             lblMoon1.BorderStyle = BorderStyle.FixedSingle;
             lblMoon1.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon1.Location = new Point(318, 154);
+            lblMoon1.Location = new Point(318, 178);
             lblMoon1.Name = "lblMoon1";
             lblMoon1.Size = new Size(233, 169);
             lblMoon1.TabIndex = 11;
@@ -176,7 +179,7 @@
             lblMoon2.BackColor = Color.White;
             lblMoon2.BorderStyle = BorderStyle.FixedSingle;
             lblMoon2.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon2.Location = new Point(318, 329);
+            lblMoon2.Location = new Point(318, 353);
             lblMoon2.Name = "lblMoon2";
             lblMoon2.Size = new Size(233, 169);
             lblMoon2.TabIndex = 12;
@@ -186,16 +189,32 @@
             lblMoon3.BackColor = Color.White;
             lblMoon3.BorderStyle = BorderStyle.FixedSingle;
             lblMoon3.Font = new Font("Segoe UI Semibold", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMoon3.Location = new Point(318, 504);
+            lblMoon3.Location = new Point(318, 528);
             lblMoon3.Name = "lblMoon3";
             lblMoon3.Size = new Size(233, 169);
             lblMoon3.TabIndex = 13;
             // 
-            // Form1
+            // menuStrip
+            // 
+            menuStrip.Items.AddRange(new ToolStripItem[] { tsiMoonNotes });
+            menuStrip.Location = new Point(0, 0);
+            menuStrip.Name = "menuStrip";
+            menuStrip.Size = new Size(565, 24);
+            menuStrip.TabIndex = 14;
+            menuStrip.Text = "menuStrip1";
+            // 
+            // tsiMoonNotes
+            // 
+            tsiMoonNotes.Name = "tsiMoonNotes";
+            tsiMoonNotes.Size = new Size(85, 20);
+            tsiMoonNotes.Text = "Moon Notes";
+            tsiMoonNotes.Click += tsiMoonNotes_Click;
+            // 
+            // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(565, 684);
+            ClientSize = new Size(565, 708);
             Controls.Add(lblMoon3);
             Controls.Add(lblMoon2);
             Controls.Add(lblMoon1);
@@ -210,14 +229,18 @@
             Controls.Add(btnBrowse);
             Controls.Add(label1);
             Controls.Add(txtPath);
+            Controls.Add(menuStrip);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip;
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "Main";
             Text = "Talkatoo Moon Images";
             ((System.ComponentModel.ISupportInitialize)picMoon1).EndInit();
             ((System.ComponentModel.ISupportInitialize)picMoon2).EndInit();
             ((System.ComponentModel.ISupportInitialize)picMoon3).EndInit();
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -239,5 +262,7 @@
         private Label lblMoon1;
         private Label lblMoon2;
         private Label lblMoon3;
+        private MenuStrip menuStrip;
+        private ToolStripMenuItem tsiMoonNotes;
     }
 }

@@ -1,9 +1,9 @@
 namespace TalkatooMoonImages
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private FileSystemWatcher Watcher;
-        private static List<string> Kingdoms = new List<string>
+        public static List<string> Kingdoms = new List<string>
         {
             "Cascade",
             "Sand",
@@ -20,7 +20,7 @@ namespace TalkatooMoonImages
         private static string KingdomDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images", "Cascade");
         private static List<KeyValuePair<string, string>> TalkatooMoons; // Key: Moon ID (as a string); Value: Moon name
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -49,8 +49,7 @@ namespace TalkatooMoonImages
             if (MonitorStarting)
             {
                 MonitorStarting = false;
-                txtPath.Enabled = false;
-                btnBrowse.Enabled = false;
+                ToggleEnabledWhenMonitoring(false);
                 btnMonitor.Text = "Stop Monitoring File";
 
                 Watcher = new FileSystemWatcher();
@@ -63,13 +62,19 @@ namespace TalkatooMoonImages
             else
             {
                 MonitorStarting = true;
-                txtPath.Enabled = true;
-                btnBrowse.Enabled = true;
+                ToggleEnabledWhenMonitoring(true);
                 btnMonitor.Text = "Start Monitoring File";
-                btnMonitor.Enabled = true;
+                //btnMonitor.Enabled = true;
 
                 Watcher.Dispose();
             }
+        }
+
+        private void ToggleEnabledWhenMonitoring(bool enabled)
+        {
+            txtPath.Enabled = enabled;
+            btnBrowse.Enabled = enabled;
+            tsiMoonNotes.Enabled = enabled;
         }
 
         private void OnFileChange(object sender, FileSystemEventArgs e)
@@ -166,6 +171,12 @@ namespace TalkatooMoonImages
             lblMoon1.Text = "";
             lblMoon2.Text = "";
             lblMoon3.Text = "";
+        }
+
+        private void tsiMoonNotes_Click(object sender, EventArgs e)
+        {
+            var moonForm = new MoonForm();
+            moonForm.ShowDialog();
         }
     }
 }
