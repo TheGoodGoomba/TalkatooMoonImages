@@ -88,7 +88,7 @@ namespace TalkatooMoonImages
 
         private void OnFileChange(object sender, FileSystemEventArgs e)
         {
-            var pendingMoons = new List<KeyValuePair<Moon, string>>(); // Key: Moon (kingdom and Id); Value: Moon name
+            var pendingMoons = new List<MoonNamePair>();
             var success = false;
             string[] pendingMoonsText = null;
             while (!success)
@@ -107,7 +107,7 @@ namespace TalkatooMoonImages
             {
                 var moonSplit = moonLine.Split(" - ");
                 var moon = Kingdoms[CurrentKingdomIndex].Moons.FirstOrDefault(x => x.MoonId == int.Parse(moonSplit[0]));
-                var moonNamePair = new KeyValuePair<Moon, string>(moon, moonSplit[1]);
+                var moonNamePair = new MoonNamePair(moon, moonSplit[1]);
                 pendingMoons.Add(moonNamePair);
             }
 
@@ -119,33 +119,45 @@ namespace TalkatooMoonImages
 
             if (pendingMoons.Count > 0)
             {
-                var imageLocation = pendingMoons[0].Key.GetImageLocation();
-                picMoon1.ImageLocation = imageLocation;
-                Invoke(() =>
+                var moon = pendingMoons[0].Moon;
+                if (moon != null)
                 {
-                    lblMoon1Name.Text = pendingMoons[0].Value;
-                    lblMoon1Notes.Text = pendingMoons[0].Key.Notes;
-                });
+                    var imageLocation = moon.GetImageLocation(); //it breaks here
+                    picMoon1.ImageLocation = imageLocation;
+                    Invoke(() =>
+                    {
+                        lblMoon1Name.Text = pendingMoons[0].MoonName;
+                        lblMoon1Notes.Text = pendingMoons[0].Moon.Notes;
+                    });
+                }
             }
             if (pendingMoons.Count > 1)
             {
-                var imageLocation = pendingMoons[1].Key.GetImageLocation();
-                picMoon2.ImageLocation = imageLocation;
-                Invoke(() =>
+                var moon = pendingMoons[1].Moon;
+                if (moon != null)
                 {
-                    lblMoon2Name.Text = pendingMoons[1].Value;
-                    lblMoon2Notes.Text = pendingMoons[1].Key.Notes;
-                });
+                    var imageLocation = moon.GetImageLocation();
+                    picMoon2.ImageLocation = imageLocation;
+                    Invoke(() =>
+                    {
+                        lblMoon2Name.Text = pendingMoons[1].MoonName;
+                        lblMoon2Notes.Text = pendingMoons[1].Moon.Notes;
+                    });
+                }
             }
             if (pendingMoons.Count > 2)
             {
-                var imageLocation = pendingMoons[2].Key.GetImageLocation();
-                picMoon3.ImageLocation = imageLocation;
-                Invoke(() =>
+                var moon = pendingMoons[2].Moon;
+                if (moon != null)
                 {
-                    lblMoon3Name.Text = pendingMoons[2].Value;
-                    lblMoon3Notes.Text = pendingMoons[2].Key.Notes;
-                });
+                    var imageLocation = moon.GetImageLocation();
+                    picMoon3.ImageLocation = imageLocation;
+                    Invoke(() =>
+                    {
+                        lblMoon3Name.Text = pendingMoons[2].MoonName;
+                        lblMoon3Notes.Text = pendingMoons[2].Moon.Notes;
+                    });
+                }
             }
         }
 
