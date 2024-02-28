@@ -32,6 +32,12 @@ namespace TalkatooMoonImages
                     new Kingdom("Luncheon", 68),
                     new Kingdom("Bowser's", 62)
                 };
+                Kingdoms[1].Moons[40].Notes = "1 2 1 4 4"; // Sand Sphynx answers (full quiz)
+                Kingdoms[1].Moons[50].Notes = "1"; // Sand Sphynx answers (first question)
+                Kingdoms[7].Moons[34].Notes = "4 3 2 4 3"; // Seaside Sphynx answers (full quiz)
+                Kingdoms[7].Moons[39].Notes = "4"; // Seaside Sphynx answers (first question)
+                // Why am i even including the answer to the first questions like just do platform clip/fish clip please i'm begging you ;-;
+                SaveSaveFile();
             }
         }
 
