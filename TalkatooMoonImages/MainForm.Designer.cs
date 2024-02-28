@@ -62,6 +62,7 @@
             txtPath.Size = new Size(413, 23);
             txtPath.TabIndex = 0;
             txtPath.TextChanged += txtPath_TextChanged;
+            txtPath.Leave += txtPath_Leave;
             // 
             // label1
             // 

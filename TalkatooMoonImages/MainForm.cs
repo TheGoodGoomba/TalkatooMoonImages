@@ -15,7 +15,7 @@ namespace TalkatooMoonImages
 
             if (File.Exists(SaveJsonPath))
             {
-                LoadKingdoms();
+                LoadSaveFile();
             }
             else
             {
@@ -51,6 +51,11 @@ namespace TalkatooMoonImages
             {
                 btnMonitor.Enabled = false;
             }
+        }
+
+        private void txtPath_Leave(object sender, EventArgs e)
+        {
+            SaveSaveFile();
         }
 
         private bool Monitoring = false;
@@ -206,20 +211,23 @@ namespace TalkatooMoonImages
 
         private void tsiMoonNotes_Click(object sender, EventArgs e)
         {
-            var moonSelectForm = new MoonSelectForm(Kingdoms[CurrentKingdomIndex]);
+            var moonSelectForm = new MoonSelectForm(Kingdoms[CurrentKingdomIndex], this);
             moonSelectForm.ShowDialog();
         }
 
-        public static void SaveKingdoms()
+        public void SaveSaveFile()
         {
-            var kingdomsJson = JsonConvert.SerializeObject(Kingdoms, Formatting.Indented);
-            File.WriteAllText(SaveJsonPath, kingdomsJson);
+            var saveFile = new SaveFile(Kingdoms, txtPath.Text);
+            var saveFileJson = JsonConvert.SerializeObject(saveFile, Formatting.Indented);
+            File.WriteAllText(SaveJsonPath, saveFileJson);
         }
 
-        public static void LoadKingdoms()
+        public void LoadSaveFile()
         {
-            var kingdomsJson = File.ReadAllText(SaveJsonPath);
-            Kingdoms = JsonConvert.DeserializeObject<List<Kingdom>>(kingdomsJson);
+            var saveFileJson = File.ReadAllText(SaveJsonPath);
+            var saveFile = JsonConvert.DeserializeObject<SaveFile>(saveFileJson);
+
+            Kingdoms = saveFile.Kingdoms;
             foreach (var kingdom in Kingdoms)
             {
                 foreach (var moon in kingdom.Moons)
@@ -227,6 +235,8 @@ namespace TalkatooMoonImages
                     moon.Kingdom = kingdom;
                 }
             }
+
+            txtPath.Text = saveFile.PendingMoonsPath;
         }
     }
 }

@@ -13,10 +13,12 @@ namespace TalkatooMoonImages
     public partial class MoonForm : Form
     {
         private Moon Moon;
+        private MainForm MainForm;
 
-        public MoonForm(Moon moon)
+        public MoonForm(Moon moon, MainForm mainForm)
         {
             Moon = moon;
+            MainForm = mainForm;
             InitializeComponent();
 
             lblHeading.Text = $"{Moon.Kingdom.Name} Moon {Moon.MoonId}";
@@ -27,7 +29,7 @@ namespace TalkatooMoonImages
         private void btnSave_Click(object sender, EventArgs e)
         {
             Moon.Notes = txtNotes.Text;
-            MainForm.SaveKingdoms();
+            MainForm.SaveSaveFile();
             Close();
         }
     }

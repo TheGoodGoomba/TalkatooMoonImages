@@ -13,10 +13,12 @@ namespace TalkatooMoonImages
     public partial class MoonSelectForm : Form
     {
         private Kingdom Kingdom;
+        private MainForm MainForm;
 
-        public MoonSelectForm(Kingdom kingdom)
+        public MoonSelectForm(Kingdom kingdom, MainForm mainForm)
         {
             Kingdom = kingdom;
+            MainForm = mainForm;
 
             InitializeComponent();
 
@@ -27,7 +29,7 @@ namespace TalkatooMoonImages
         private void btnContinue_Click(object sender, EventArgs e)
         {
             var moon = Kingdom.Moons.FirstOrDefault(x => x.MoonId == nudMoonNumber.Value);
-            var moonForm = new MoonForm(moon);
+            var moonForm = new MoonForm(moon, MainForm);
             moonForm.ShowDialog();
         }
     }
